@@ -8,3 +8,5 @@ RUN apk update && \
     apk add vim git subversion python && \
     curl -s https://bootstrap.pypa.io/get-pip.py | python && \
     pip install awscli
+
+WORKDIR /root
