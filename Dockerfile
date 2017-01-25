@@ -38,7 +38,8 @@ RUN set -x && \
 RUN sed -i "s/\"syntax on/syntax on/g" /etc/vim/vimrc
 
 # Custom PS1
-RUN echo 'export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]D\[$(tput setaf 5)\]o\[$(tput setaf 6)\]c\[$(tput setaf 4)\]k\[$(tput setaf 2)\]e\[$(tput setaf 3)\]r\[$(tput setaf 2)\] \w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\$ \[$(tput sgr0)\]"' >> /etc/bash.bashrc
+# RUN echo 'export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]D\[$(tput setaf 5)\]o\[$(tput setaf 6)\]c\[$(tput setaf 4)\]k\[$(tput setaf 2)\]e\[$(tput setaf 3)\]r\[$(tput setaf 2)\] \w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\$ \[$(tput sgr0)\]"' >> /etc/bash.bashrc
+RUN sed -i 's/^PS1=.*$/PS1="\\[$(tput bold)\\]\\[$(tput setaf 1)\\][\\[$(tput setaf 3)\\]D\\[$(tput setaf 5)\\]o\\[$(tput setaf 6)\\]c\\[$(tput setaf 4)\\]k\\[$(tput setaf 2)\\]e\\[$(tput setaf 3)\\]r\\[$(tput setaf 2)\\] \\w\\[$(tput setaf 1)\\]]\\[$(tput setaf 7)\\]\\$ \\[$(tput sgr0)\\]"/g' /etc/bash.bashrc
 
 
 COPY entrypoint.sh /usr/local/bin/
