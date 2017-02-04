@@ -12,7 +12,7 @@ ENV DOCKER_BUCKET="get.docker.com" \
 RUN set -x && \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    curl vim zip man telnet net-tools python git subversion cifs-utils screen xfsprogs iptables nload && \
+    curl wget vim zip man telnet net-tools python git subversion dos2unix cifs-utils screen xfsprogs iptables nload && \
     apt-get clean all && \
     curl -s https://bootstrap.pypa.io/get-pip.py | python && \
     pip install awscli
