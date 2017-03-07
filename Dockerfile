@@ -15,7 +15,10 @@ RUN set -x && \
     curl wget vim zip man telnet net-tools python git subversion dos2unix cifs-utils screen xfsprogs iptables nload openldap-utils && \
     apt-get clean all && \
     curl -s https://bootstrap.pypa.io/get-pip.py | python && \
-    pip install awscli
+    pip install awscli && \
+    curl -Lo git-lfs.deb https://packagecloud.io/github/git-lfs/packages/debian/jessie/git-lfs_2.0.1_amd64.deb/download && \
+    dpkg -i git-lfs.deb && \
+    rm -rf git-lfs.deb
 
 # Setup docker
 RUN set -x && \
